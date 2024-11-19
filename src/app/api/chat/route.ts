@@ -50,7 +50,15 @@ export async function POST(req: Request) {
     return new StreamingTextResponse(
       stream.pipeThrough(createStreamDataTransformer())
     );
-  } catch (e: any) {
-    return Response.json({ error: e.message }, { status: e.status ?? 500 });
+  } catch (e: unknown) {
+    if (e instanceof Error) {
+      return new Response(JSON.stringify({ error: e.message }), {
+        status: 500,
+      });
+    }
+    return new Response(
+      JSON.stringify({ error: "An unknown error occurred" }),
+      { status: 500 }
+    );
   }
 }
