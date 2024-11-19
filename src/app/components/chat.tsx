@@ -5,8 +5,8 @@ import { Button } from "./ui/button";
 import { useChat } from "ai/react";
 import { useRef, useEffect } from "react";
 import Image from "next/image";
-import logo from "/Users/mateivolanschi/rag/src/assets/serpentinelogo.png";
-import logo2 from "/Users/mateivolanschi/rag/src/assets/userlogo.jpg";
+import logo from "src/assets/serpentinelogo.png";
+import logo2 from "src/assets/userlogo.jpg";
 import { Trash2 } from "lucide-react";
 
 export function Chat() {
